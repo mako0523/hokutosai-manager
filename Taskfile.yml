@@ -1,0 +1,23 @@
+version: "3"
+
+tasks:
+  up:
+    desc: Dockerコンテナの起動
+    cmds:
+      - docker compose up -d --build
+    silent: true
+  down:
+    desc: Dockerコンテナの停止
+    cmds:
+      - docker compose down
+    silent: true
+  clean:
+    desc: イメージ，ボリューム，ネットワークの削除
+    cmds:
+      - docker compose down --rmi all --volumes --remove-orphans
+    silent: true
+  dev:
+    desc: 開発サーバーの起動
+    cmds:
+      - docker compose exec -it next npm run dev
+    silent: true
