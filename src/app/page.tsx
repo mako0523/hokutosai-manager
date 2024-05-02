@@ -1,4 +1,4 @@
-import styles from "./page.module.css";
+import styled from "styled-components";
 import { TplH1 } from "../components/TplH1";
 
 const Home = () => {
