@@ -10,7 +10,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-const Wrapper = styled.div`
+const StyledVoteTable = styled.div`
   width: 80%;
   max-width: 800px;
   margin: 0 auto;
@@ -25,7 +25,7 @@ export const VoteTable = async (props: VoteTableProps) => {
   const votes = await fetchVotes(voteName);
 
   return (
-    <Wrapper>
+    <StyledVoteTable>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 300 }} aria-label="simple table">
           <TableHead>
@@ -48,7 +48,7 @@ export const VoteTable = async (props: VoteTableProps) => {
           </TableBody>
         </Table>
       </TableContainer>
-    </Wrapper>
+    </StyledVoteTable>
   );
 };
 
