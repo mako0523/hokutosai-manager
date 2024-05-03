@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { TplH1 } from "../components/TplH1";
+import { H1 } from "../components/H1";
 
 const Home = () => {
   return (
     <>
-      <TplH1 />
+      <H1 />
     </>
   );
 };
