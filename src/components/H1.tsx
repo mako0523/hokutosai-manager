@@ -7,6 +7,12 @@ const StyledH1 = styled.h1`
   text-align: center;
 `;
 
-export const H1 = () => {
-  return <StyledH1>2024年北斗祭管理者ページ</StyledH1>;
+type H1Props = {
+  text: string;
+};
+
+export const H1 = (props: H1Props) => {
+  const { text } = props;
+
+  return <StyledH1>{text}</StyledH1>;
 };
