@@ -16,6 +16,7 @@ type VoteTableProps = {
 export const VoteTable = async (props: VoteTableProps) => {
   const { voteName } = props;
   const votes = await fetchVotes(voteName);
+  votes.sort((arg1, arg2) => arg2.count - arg1.count);
 
   return (
     <TableContainer component={Paper}>
