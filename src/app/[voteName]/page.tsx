@@ -1,5 +1,6 @@
 import React from "react";
 import { VoteTable } from "../../components/VoteTable";
+import { HomeButton } from "../../components/HomeButton";
 import { voteNames, VoteName, toJapaneseVoteName } from "../../utils/vote-name";
 
 type VotePageProps = {
@@ -23,6 +24,7 @@ const votePage = (props: VotePageProps) => {
     <>
       <h2>「{japaneseVoteName}」の投票数</h2>
       <VoteTable voteName={voteName} />
+      <HomeButton />
     </>
   );
 };
