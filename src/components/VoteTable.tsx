@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import styled from "styled-components";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -53,5 +52,8 @@ const fetchVotes = async (voteName: string): Promise<VoteProps[]> => {
   const res = await fetch(`https://hokutofes.com/api/vote/${voteName}`, {
     cache: "no-store",
   });
+  if (!res.ok) {
+    return [];
+  }
   return res.json();
 };
