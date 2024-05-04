@@ -20,7 +20,7 @@ export const VoteList = () => {
             key={index}
             component={Button}
             underline="none"
-            href={`/${voteName}`}
+            href={`/manager/${voteName}`}
           >
             {toJapaneseVoteName(voteName)}
           </Link>
