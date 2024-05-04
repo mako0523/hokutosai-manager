@@ -1,8 +1,12 @@
-import styled from "styled-components";
-import { H1 } from "../components/H1";
+import { VoteList } from "../components/VoteList";
 
 const Home = () => {
-  return <></>;
+  return (
+    <>
+      <h2>投票一覧</h2>
+      <VoteList />
+    </>
+  );
 };
 
 export default Home;
