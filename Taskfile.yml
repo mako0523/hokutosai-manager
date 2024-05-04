@@ -21,3 +21,13 @@ tasks:
     cmds:
       - docker compose exec -it next npm run dev
     silent: true
+  start:
+    desc: 本番サーバーの起動
+    cmds:
+      - docker compose exec -it next npm run start
+    silent: true
+  build:
+    desc: ビルド
+    cmds:
+      - docker compose exec -it next npm run build
+    silent: true
