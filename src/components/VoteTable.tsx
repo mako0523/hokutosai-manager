@@ -23,7 +23,7 @@ export const VoteTable = async (props: VoteTableProps) => {
       <Table sx={{ minWidth: 300 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>インデックス</TableCell>
+            <TableCell>順位</TableCell>
             <TableCell align="right">名前</TableCell>
             <TableCell align="right">投票数</TableCell>
           </TableRow>
