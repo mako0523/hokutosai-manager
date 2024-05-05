@@ -22,7 +22,7 @@ const votePage = (props: VotePageProps) => {
 
   return (
     <>
-      <h2>「{japaneseVoteName}」の投票結果</h2>
+      <h2 style={{ marginTop: "64px" }}>「{japaneseVoteName}」の投票結果</h2>
       <VoteTable voteName={voteName} />
       <HomeButton />
     </>
