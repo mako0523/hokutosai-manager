@@ -3,6 +3,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Button, Link } from "@mui/material";
+import { NavigateNext } from "@mui/icons-material";
 import { voteNames, toJapaneseVoteName } from "../utils/vote-name";
 
 const StyledVoteList = styled.div`
@@ -20,6 +21,7 @@ export const VoteList = () => {
             key={index}
             component={Button}
             underline="none"
+            startIcon={<NavigateNext />}
             href={`/${voteName}`}
           >
             {toJapaneseVoteName(voteName)}
