@@ -11,7 +11,8 @@ export const HomeButton = () => {
         href="/"
         size="large"
         sx={{
-          marginTop: "32px",
+          marginTop: "64px",
+          marginBottom: "64px",
         }}
       >
         ホームへ戻る
