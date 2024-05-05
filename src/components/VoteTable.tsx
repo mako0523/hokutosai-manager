@@ -17,6 +17,8 @@ export const VoteTable = async (props: VoteTableProps) => {
   const { voteName } = props;
   const votes = await fetchVotes(voteName);
   votes.sort((arg1, arg2) => arg2.count - arg1.count);
+  let rank = 0;
+  let prevVoteCount = NaN;
 
   return (
     <TableContainer component={Paper}>
@@ -29,15 +31,22 @@ export const VoteTable = async (props: VoteTableProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {votes.map((vote, index) => (
-            <TableRow key={index}>
-              <TableCell component="th" scope="row">
-                {index + 1}
-              </TableCell>
-              <TableCell align="right">{vote.name}</TableCell>
-              <TableCell align="right">{vote.count}</TableCell>
-            </TableRow>
-          ))}
+          {votes.map((vote, index) => {
+            if (vote.count !== prevVoteCount) {
+              rank++;
+            }
+            prevVoteCount = vote.count;
+
+            return (
+              <TableRow key={index}>
+                <TableCell component="th" scope="row">
+                  {rank}
+                </TableCell>
+                <TableCell align="right">{vote.name}</TableCell>
+                <TableCell align="right">{vote.count}</TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </TableContainer>
