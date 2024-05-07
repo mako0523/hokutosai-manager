@@ -59,11 +59,15 @@ type VoteProps = {
 };
 
 const fetchVotes = async (voteName: string): Promise<VoteProps[]> => {
-  const res = await fetch(`https://hokutofes.com/api/vote/${voteName}`, {
-    cache: "no-store",
-  });
-  if (!res.ok) {
+  try {
+    const res = await fetch(`https://hokutofes.com/api/vote/${voteName}`, {
+      cache: "no-store",
+    });
+    if (!res.ok) {
+      throw new Error("レスポンスが失敗");
+    }
+    return res.json();
+  } catch (error) {
     return [];
   }
-  return res.json();
 };
