@@ -8,6 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { isVoteName, VoteName } from "../utils/vote-name";
 
 type VoteTableProps = {
   voteName: string;
@@ -15,6 +16,10 @@ type VoteTableProps = {
 
 export const VoteTable = async (props: VoteTableProps) => {
   const { voteName } = props;
+  if (!isVoteName(voteName)) {
+    return null;
+  }
+
   const votes = await fetchVotes(voteName);
   votes.sort((arg1, arg2) => arg2.count - arg1.count);
   let rank = 0;
@@ -58,7 +63,7 @@ type VoteProps = {
   count: number;
 };
 
-const fetchVotes = async (voteName: string): Promise<VoteProps[]> => {
+const fetchVotes = async (voteName: VoteName): Promise<VoteProps[]> => {
   try {
     const res = await fetch(`https://hokutofes.com/api/vote/${voteName}`, {
       cache: "no-store",
