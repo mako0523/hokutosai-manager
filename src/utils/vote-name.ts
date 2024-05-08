@@ -9,6 +9,15 @@ export const voteNames = [
 
 export type VoteName = (typeof voteNames)[number];
 
+export const isVoteName = (arg: unknown): arg is VoteName => {
+  for (const voteName of voteNames) {
+    if (arg === voteName) {
+      return true;
+    }
+  }
+  return false;
+};
+
 export const toJapaneseVoteName = (voteName: VoteName): string => {
   switch (voteName) {
     case "stall":
