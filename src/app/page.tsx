@@ -1,4 +1,4 @@
-import { VoteList } from "../components/VoteList";
+import { VoteList } from "@/components/VoteList";
 
 const Home = () => {
   return (

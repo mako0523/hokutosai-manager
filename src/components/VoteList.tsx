@@ -4,7 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import { Button, Link } from "@mui/material";
 import { NavigateNext } from "@mui/icons-material";
-import { voteNames, toJapaneseVoteName } from "../utils/vote-name";
+import { voteNames, toJapaneseVoteName } from "@/utils/vote-name";
 
 const StyledVoteList = styled.div`
   display: flex;
