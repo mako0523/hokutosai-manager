@@ -65,7 +65,7 @@ type VoteProps = {
 
 const fetchVotes = async (voteName: VoteName): Promise<VoteProps[]> => {
   try {
-    const res = await fetch(`https://hokutofes.com/api/vote/${voteName}`, {
+    const res = await fetch(`https://hokutosai.net/api/vote/${voteName}`, {
       cache: "no-store",
     });
     if (!res.ok) {
