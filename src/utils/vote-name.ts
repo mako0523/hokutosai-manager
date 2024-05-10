@@ -9,9 +9,9 @@ export const voteNames = [
 
 export type VoteName = (typeof voteNames)[number];
 
-export const isVoteName = (arg: unknown): arg is VoteName => {
+export const isVoteName = (value: unknown): value is VoteName => {
   for (const voteName of voteNames) {
-    if (arg === voteName) {
+    if (value === voteName) {
       return true;
     }
   }
