@@ -4,7 +4,6 @@ export const voteNames = [
   "voice",
   "cosplay",
   "muscle",
-  "karaoke",
 ] as const;
 
 export type VoteName = (typeof voteNames)[number];
@@ -30,7 +29,5 @@ export const toJapaneseVoteName = (voteName: VoteName): string => {
       return "仮装コンテスト";
     case "muscle":
       return "キン肉マンコンテスト";
-    case "karaoke":
-      return "カラオケコンテスト";
   }
 };
