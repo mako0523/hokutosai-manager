@@ -1,24 +1,38 @@
 import { NextRequest, NextResponse } from "next/server";
 
+/**
+ * @see https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
+ */
 export const config = {
-  matcher: ["/", "/index"],
+  matcher: ["/:path*", "/index/:path*"],
 };
 
 export function middleware(req: NextRequest) {
-  const basicAuth = req.headers.get("authorization");
-  const url = req.nextUrl;
+  const basicAuth = req.headers.get("Authorization");
 
   if (basicAuth) {
     const authValue = basicAuth.split(" ")[1];
-    if (typeof authValue === "undefined") return;
+    // atob is deprecated but Buffer.from is not available in Next.js edge.
+    const [user, password] = atob(authValue).split(":");
 
-    const [user, pwd] = atob(authValue).split(":");
-
-    if (user === "4dmin" && pwd === "testpwd123") {
+    if (user === "4dmin" && password === "pwd123") {
       return NextResponse.next();
     }
-  }
-  url.pathname = "/api/auth";
 
-  return NextResponse.rewrite(url);
+    return NextResponse.json(
+      { error: "Invalid credentials" },
+      {
+        headers: { "WWW-Authenticate": 'Basic realm="Secure Area"' },
+        status: 401,
+      }
+    );
+  } else {
+    return NextResponse.json(
+      { error: "Please enter credentials" },
+      {
+        headers: { "WWW-Authenticate": 'Basic realm="Secure Area"' },
+        status: 401,
+      }
+    );
+  }
 }
