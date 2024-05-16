@@ -13,6 +13,8 @@ export function middleware(req: NextRequest) {
   if (basicAuth) {
     const authValue = basicAuth.split(" ")[1];
     // atob is deprecated but Buffer.from is not available in Next.js edge.
+    if (typeof authValue === "undefined") return;
+
     const [user, password] = atob(authValue).split(":");
 
     if (user === "4dmin" && password === "pwd123") {
