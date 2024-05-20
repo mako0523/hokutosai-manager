@@ -7,6 +7,8 @@ services:
       - 3000:3000
     environment:
       - WATCHPACK_POLLING=true
+      - BASIC_AUTHENTICATION_USER=user
+      - BASIC_AUTHENTICATION_PASSWORD=password
     volumes:
       - type: bind
         source: ./
